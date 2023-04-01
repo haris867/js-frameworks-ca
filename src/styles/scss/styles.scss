@@ -1,0 +1,39 @@
+@import "~bootstrap/scss/bootstrap";
+
+nav a {
+  text-decoration: none;
+  color: white;
+  &:hover {
+    text-decoration: underline;
+    color: white;
+  }
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.logo {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  color: white;
+  background-color: #131313;
+  text-align: center;
+}
+
+.row > * {
+  width: unset;
+}
+
+.container {
+  margin-bottom: 70px;
+}
