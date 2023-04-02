@@ -4,7 +4,6 @@ import "./App.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Theme from "./styles/theme";
-import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./styles/GlobalStyles";
 import { BrowserRouter } from "react-router-dom";
 

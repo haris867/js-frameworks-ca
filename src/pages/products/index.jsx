@@ -1,8 +1,7 @@
 import useApi from "../../hooks/api";
 import { useParams } from "react-router-dom";
-import { Button, Container } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { url } from "../../utils/constants";
-import React, { useReducer } from "react";
 import { useCart } from "../../hooks/useCart";
 
 export default function SingleProduct() {

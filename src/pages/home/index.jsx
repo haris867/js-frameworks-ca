@@ -7,8 +7,7 @@ import { useCart } from "../../hooks/useCart";
 import SearchBar from "../../components/searchBar";
 
 export default function Home() {
-  const { cart, products, fetchProducts, clearCart, isLoading, hasErrors } =
-    useCart();
+  const { products, fetchProducts, isLoading, hasErrors } = useCart();
 
   useEffect(() => {
     fetchProducts(url);

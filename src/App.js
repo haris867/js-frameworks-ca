@@ -1,6 +1,6 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import { Home, Products, Cart, Contact } from "./pages";
+import { Routes, Route } from "react-router-dom";
+import { Home, Cart, Contact } from "./pages";
 import Layout from "./components/layout";
 import SingleProduct from "./pages/products";
 import CheckOut from "./pages/checkout";

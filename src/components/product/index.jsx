@@ -6,14 +6,10 @@ import { useCart } from "../../hooks/useCart.jsx";
 import * as S from "./index.styled.jsx";
 
 function ProductCard({ product }) {
-  const { addToCart, removeFromCart } = useCart();
+  const { addToCart } = useCart();
   function addToCartClick(event, id) {
     event.preventDefault();
     addToCart(id);
-  }
-  function removeFromCartClick(event, id) {
-    event.preventDefault();
-    removeFromCart(id);
   }
   return (
     <Link to={`/products/${product.id}`}>

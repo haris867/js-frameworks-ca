@@ -1,6 +1,3 @@
-import React, { useState, useEffect } from "react";
-import { url } from "../utils/constants";
-
 export default function useApi(url) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
