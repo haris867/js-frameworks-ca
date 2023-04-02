@@ -7,10 +7,34 @@ import * as S from "./index.styled.jsx";
 
 function ProductCard({ product }) {
   const { addToCart } = useCart();
+
   function addToCartClick(event, id) {
     event.preventDefault();
     addToCart(id);
   }
+
+  function renderPrice() {
+    if (product.price === product.discountedPrice) {
+      return (
+        <S.Price className="me-2 mb-2" isValid>
+          {product.price}
+        </S.Price>
+      );
+    } else {
+      const percentage = Math.round(
+        ((product.price - product.discountedPrice) / product.price) * 100
+      );
+      return (
+        <>
+          <S.Price className="me-2 mb-2">{product.price}</S.Price>
+          <Card.Text style={{ color: "black" }}>
+            {product.discountedPrice} ({percentage}% off)
+          </Card.Text>
+        </>
+      );
+    }
+  }
+
   return (
     <Link to={`/products/${product.id}`}>
       <Card
@@ -30,12 +54,7 @@ function ProductCard({ product }) {
         />
         <Card.Body>
           <Card.Title>{product.title}</Card.Title>
-          <S.Price isValid={product.price === product.discountedPrice}>
-            {product.price}
-          </S.Price>
-          <Card.Text>
-            {product.discountedPrice < product.price && product.discountedPrice}
-          </Card.Text>
+          <div className="d-flex">{renderPrice()}</div>
           <Button className="me-3">VIEW</Button>
           <Button onClick={(event) => addToCartClick(event, product.id)}>
             ADD TO CART

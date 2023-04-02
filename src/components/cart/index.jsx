@@ -19,7 +19,14 @@ export default function ShoppingCart() {
   }, []);
 
   if (cart.length === 0) {
-    return <div>Cart is empty</div>;
+    return (
+      <div className="text-center">
+        <div>Cart is empty</div>
+        <div>
+          <Link to={`/`}>Continue shopping</Link>
+        </div>
+      </div>
+    );
   }
 
   const totalPrice = productsInCartWithQuantity
@@ -49,8 +56,8 @@ export default function ShoppingCart() {
                 />
                 {product.title}
               </div>
-              <div>{product.quantity}</div>
-              <div>{product.price * product.quantity}</div>
+              <div className="mx-3">{product.quantity}</div>
+              <div>{(product.price * product.quantity).toFixed(2)}</div>
             </div>
           );
         })}

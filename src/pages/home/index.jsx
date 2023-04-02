@@ -28,6 +28,7 @@ export default function Home() {
       <Banner />
       <SearchBar />
       <Container>
+        <h1 className="text-center">Our products</h1>
         <Col xs={12} md={12} lg={12}>
           <Row className="d-flex justify-content-center">
             {products.map((product) => (

@@ -81,6 +81,9 @@ label {
 .product-container {
   margin-bottom: 100px;
 }
+.product-container {
+  max-width: 300px;
+}
 
 @media (max-width: 576px) {
   .right {
@@ -105,10 +108,6 @@ label {
 @media (max-width: 800px) {
   .searchResults {
     min-width: 70vw;
-  }
-
-  .product-container {
-    max-width: 300px;
   }
 
   .product-page img {
