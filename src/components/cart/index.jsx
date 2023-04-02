@@ -1,4 +1,6 @@
 import { useCart } from "../../hooks/useCart";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function ShoppingCart() {
   const { cart, products, clearCart } = useCart();
@@ -26,17 +28,34 @@ export default function ShoppingCart() {
 
   return (
     <div>
-      <button onClick={clearCart}>CLEAR CART</button>
-      Cart:
-      {productsInCartWithQuantity.map((product) => {
-        return (
-          <div>
-            {product.title} - {product.quantity} -{" "}
-            {product.price * product.quantity}
-          </div>
-        );
-      })}
-      Total Price: {totalPrice}
+      <div className="d-flex justify-content-between">
+        <div>Cart:</div>
+        <div>
+          <Button onClick={clearCart}>CLEAR CART</Button>
+        </div>
+      </div>
+      <div>
+        {productsInCartWithQuantity.map((product) => {
+          return (
+            <div className="mb-3 d-flex align-items-center justify-content-between">
+              <div>
+                <img
+                  className="me-2"
+                  src={product.imageUrl}
+                  alt={product.title}
+                />
+                {product.title}
+              </div>
+              <div>{product.quantity}</div>
+              <div>{product.price * product.quantity}</div>
+            </div>
+          );
+        })}
+        Total Price: {totalPrice}
+      </div>
+      <Link to={`/checkout`}>
+        <Button onClick={clearCart}>CHECKOUT</Button>
+      </Link>
     </div>
   );
 }

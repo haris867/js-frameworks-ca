@@ -40,11 +40,9 @@ function ProductCard({ product }) {
           <Card.Text>
             {product.discountedPrice < product.price && product.discountedPrice}
           </Card.Text>
+          <Button className="me-3">VIEW</Button>
           <Button onClick={(event) => addToCartClick(event, product.id)}>
             ADD TO CART
-          </Button>
-          <Button onClick={(event) => removeFromCartClick(event, product.id)}>
-            REMOVE FROM CART
           </Button>
         </Card.Body>
       </Card>

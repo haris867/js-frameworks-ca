@@ -1,45 +1,26 @@
-// import useApi from "../../hooks/api";
-// import { useParams } from "react-router-dom";
-// import ProductCard from "../../components/product";
-// import { url } from "../../utils/constants";
-
-// export default function SingleProduct() {
-//   let { id } = useParams();
-//   const [data, isLoading, error] = useApi(url + `${id}`);
-
-//   console.log(data);
-
-//   if (isLoading) {
-//     return <div>Loading...</div>;
-//   }
-
-//   if (error) {
-//     return <div>Error: {error.message}</div>;
-//   }
-
-//   return (
-//     <div>
-//       <ProductCard product={data} />
-//     </div>
-//   );
-// }
-
 import useApi from "../../hooks/api";
 import { useParams } from "react-router-dom";
-import ProductCard from "../../components/product";
+import { Button, Container } from "react-bootstrap";
 import { url } from "../../utils/constants";
 import React, { useReducer } from "react";
-// import { reducer, initialState } from "../../components/cart";
+import { useCart } from "../../hooks/useCart";
 
 export default function SingleProduct() {
   let { id } = useParams();
   const [data, isLoading, error] = useApi(url + `${id}`);
-  // const [state, dispatch] = useReducer(reducer, initialState);
 
-  // const addToCart = (product) => {
-  //   dispatch({ type: "addProduct", payload: product });
-  // };
+  const { cart, addToCart, removeFromCart } = useCart();
+  function addToCartClick(event, id) {
+    event.preventDefault();
+    addToCart(id);
+  }
+  function removeFromCartClick(event, id) {
+    event.preventDefault();
+    removeFromCart(id);
+  }
 
+  console.log(cart);
+  console.log(data);
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -48,9 +29,46 @@ export default function SingleProduct() {
     return <div>Error: {error.message}</div>;
   }
 
+  const inCart = cart.some((item) => item === data.id);
+
   return (
-    <div>
-      <ProductCard product={data} />
+    <div className="product-page product-container mx-auto mb-6">
+      <div className="d-flex justify-content-center my-3">
+        <img src={data.imageUrl} alt={data.title} />
+      </div>
+      <div className="">
+        <div className="d-flex justify-content-between">
+          <div>{data.title}</div>
+          <div>{data.price}</div>
+        </div>
+        <div>
+          <Button onClick={(event) => addToCartClick(event, data.id)}>
+            ADD TO CART
+          </Button>
+          {inCart && (
+            <Button onClick={(event) => removeFromCartClick(event, data.id)}>
+              REMOVE FROM CART
+            </Button>
+          )}
+        </div>
+        <div className="d-flex justify-content-center mt-4">
+          Description {data.description}
+        </div>
+        <div className="d-flex justify-content-center mt-4">
+          Rating: {data.rating}
+        </div>
+        <div className="my-4">
+          REVIEWS
+          {data.reviews &&
+            data.reviews.map((review) => (
+              <div key={review.id}>
+                <div>{review.username}</div>
+                <div>{review.rating}</div>
+                <div>{review.description}</div>
+              </div>
+            ))}
+        </div>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import ShoppingCart from "../../components/cart";
 
 function Cart() {
   return (
-    <div>
+    <div className="d-flex justify-content-center cart">
       <ShoppingCart />
     </div>
   );

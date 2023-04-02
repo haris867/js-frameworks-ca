@@ -91,7 +91,7 @@ function Contact() {
           placeholder="Message"
           onChange={onTextInputChange}
         />
-        <Button type="submit">Submit form</Button>
+        <Button type="submit">SUBMIT</Button>
       </form>
     </div>
   );
