@@ -37,7 +37,10 @@ export default function ShoppingCart() {
       <div>
         {productsInCartWithQuantity.map((product) => {
           return (
-            <div className="mb-3 d-flex align-items-center justify-content-between">
+            <div
+              key={product.id}
+              className="mb-3 d-flex align-items-center justify-content-between"
+            >
               <div>
                 <img
                   className="me-2"
