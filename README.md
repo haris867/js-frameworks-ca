@@ -46,6 +46,6 @@ npm run start
 
 ## Contact
 
-[Email](mailto:haris@hotmail.com)
+✉️ [Email](mailto:haris@hotmail.com)
 
-[LinkedIn](https://www.linkedin.com/in/haris-usman-3bb83a204/)
+💻 [LinkedIn](https://www.linkedin.com/in/haris-usman-3bb83a204/)
