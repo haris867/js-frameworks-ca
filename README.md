@@ -27,7 +27,7 @@ You can list a the tech stack that you've used over here
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/haris867/project-exam-2.git
+git clone https://github.com/haris867/js-frameworks-ca.git
 ```
 
 2. Install the dependencies:
